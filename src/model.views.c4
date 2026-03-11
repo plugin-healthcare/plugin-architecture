@@ -1,6 +1,6 @@
 views {
-  view plugin {
-    title 'Overzicht'
+  view index {
+    title 'PLUGIN'
     include data-gebruiker, data-houder, -> plugin
   }
 
@@ -12,5 +12,6 @@ views {
   view datastation of plugin.datastation {
     title 'Datastation'
     include *
+    include -> *
   }
 }

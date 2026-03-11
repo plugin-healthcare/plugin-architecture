@@ -1,6 +1,9 @@
 model {
     data-gebruiker = actor 'Data gebruiker' {
         description 'Een data gebruiker is een persoon die gezondheidsgegevens gebruikt voor onderzoek, innovatie of beleid.'
+
+        -> plugin.fph.plugin-ml 'ontwikkelt machine learning algoritmes met'
+        -> plugin.fph.vantage6-ui 'beheert federatieve samenwerking in'
     }
     data-houder = actor 'Data houder' {
         description 'Een data houder is een persoon of organisatie die gezondheidsgegevens beheert en beschikbaar stelt aan data gebruikers.'
@@ -16,12 +19,14 @@ model {
                 description 'Component die verantwoordelijk is voor het uitvoeren van federatieve berekeningen op de data van een data houder, inclusief het ontvangen van taken, uitvoeren van algoritmes en terugsturen van resultaten.'
             }
 
-            vantage6-client = component 'vantage6 client' {
-                description 'CLI voor het managen van vantage6 nodes.'
-            }
-
             plugin-lake-ui = container 'PLUGIN-Lake UI' {
                 description 'Component die lakehouse functionaliteit biedt voor het opslaan en beheren van grote hoeveelheden gestructureerde en ongestructureerde data.'
+            }
+
+            dagster-ui = container 'Dagster UI' {
+                description 'Component die een interface biedt voor het ontwerpen, plannen en monitoren van data pipelines.'
+
+                -> plugin-lake-server.dagster-deamon 'stuurt opdrachten naar en ontvangt status updates van'
             }
 
             algoritme-container = container 'Algoritme container' {
@@ -30,13 +35,45 @@ model {
 
             plugin-lake-server = container 'PLUGIN-Lake Server' {
                 description ''
+                -> fhir 'slaat data op in'
+                -> omop 'slaat data op in'
+                -> lbz 'slaat data op in'
+                -> openehr 'slaat data op in'
+
+                ducklake = container 'DuckLake' {
+                    description 'Lakehouse storage layer met ondersteuning voor verschillende opslagformaten en query engines.'
+                }
+
+                plugin-lake-api = container 'PLUGIN-Lake API' {
+                    description 'API die toegang biedt DuckLake.'
+                    -> ducklake 'leest data van en schrijft data naar'
+                }
+
+                dagster-deamon = container 'Dagster Daemon' {
+                    description 'Component die verantwoordelijk is voor het uitvoeren van geplande taken en het monitoren van de status van data pipelines in Dagster.'
+                }
             }
 
             omop = datastore 'OMOP CDM 5.4' {
-                description 'Databse waarin gezondheidsgegevens zijn opgeslagen volgens de OMOP Common Data Model (CDM) 5.4 specificaties.'
+                description 'Datastore waarin gezondheidsgegevens zijn opgeslagen volgens de OMOP Common Data Model (CDM) 5.4 specificaties.'
             }
 
-            plugin-lake-server -> omop 'slaat data op in'
+            fhir = datastore 'FHIR' {
+                description 'Datastore waarin gezondheidsgegevens zijn opgeslagen volgens de FHIR (Fast Healthcare Interoperability Resources) standaard.'
+            }
+
+            lbz = datastore 'LBZ' {
+                description 'Datastore waarin gezondheidsgegevens zijn opgeslagen volgens de Landelijke Basisregistratie Ziekenhuiszorg (LBZ) standaard.'
+            }
+
+            openehr = datastore 'OpenEHR' {
+                description 'Datastore waarin gezondheidsgegevens zijn opgeslagen volgens de OpenEHR standaard.'
+                style {
+                    color muted
+                }
+            }
+
+
             plugin-lake-ui -> plugin-lake-server 'interface voor inzage in orchestratie en data'
             vantage6-node -> algoritme-container 'zet op, configureert en stuurt resultaten door van'
             algoritme-container -> plugin-lake-server 'leest data van en schrijft tijdelijke resultaten naar'
@@ -56,6 +93,7 @@ model {
                 vantage6-database = datastore 'vantage6 database' {
                     description 'Database waarin gegevens worden opgeslagen die nodig zijn voor het beheren van federatieve berekeningen, zoals gebruikersinformatie, berekeningsverzoeken, taakstatussen en resultaten.'
                 }
+                -> blob-storage 'maakt gebruik van'
 
             }
 
@@ -76,25 +114,36 @@ model {
                 style {
                     color muted
                 }
+                duhden-portaal = container 'DUHDEN Portaal' {
+                    description 'Component die een portaal biedt voor data gebruikers om toegang te krijgen tot OMOP databases.'
+                    style {
+                        color muted
+                    }
+                }
+                -> some-server 'wordt uitgevoerd via'
             }
 
             plugin-hub = container 'PLUGIN-Hub' {
                 description 'Component waarmee data vanuit datastations naar een centraal systeem kunnen worden doorgestuurd.'
+            }
+
+            some-server = container 'Nader te bepalen server' {
+                description 'Centrale component voor federated analytics.'
                 style {
                     color muted
                 }
+                -> plugin.datastation.plugin-lake-server 'voert federatieve analyses uit via'
             }
 
-            duhden-portaal = container 'DUHDEN Portaal' {
-                description 'Component die een portaal biedt voor data gebruikers om toegang te krijgen tot OMOP databases.'
-                style {
-                    color muted
-                }
-
-                vantage6-ui -> vantage6-server 'grafische interface voor beheren federatieve berekeningen'
-                vantage6-server -> algoritme-register 'slaat goedgekeurde algoritmes op in'
-                plugin-ml -> vantage6-server 'verstuurt opdrachten, controleert status en vraagt resultaten aan'
+            blob-storage = datastore 'Blob Storage' {
+                description 'Opslag voor grote bestanden, zoals modelbestanden, datasets en resultaten van federatieve berekeningen.'
             }
+
+
+            vantage6-ui -> vantage6-server 'grafische interface voor beheren federatieve berekeningen'
+            vantage6-server -> algoritme-register 'slaat goedgekeurde algoritmes op in'
+            plugin-ml -> vantage6-server 'wordt uitgevoerd via'
+            plugin-hub -> vantage6-server 'wordt uitgevoerd via'
         }
 
 
