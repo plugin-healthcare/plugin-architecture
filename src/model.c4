@@ -88,6 +88,7 @@ model {
 
                 vantage6-client = component 'vantage6 client' {
                     description 'CLI voor programmatisch aansturen van vantage6 server.'
+                    technology 'Python'
                 }
 
                 vantage6-database = datastore 'vantage6 database' {
