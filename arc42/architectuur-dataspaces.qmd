@@ -1,0 +1,7 @@
+---
+title: Architectuur van data spaces
+autho: René Hietkamp
+date: 2025-10-01
+---
+
+{{< pdf file="hietkamp2025architectuur-dataspaces.pdf" height="900px">}}

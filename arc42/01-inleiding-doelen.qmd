@@ -2,7 +2,7 @@
 
 ## Inleiding
 
-De Nederlandse zorg beschikt over grote hoeveelheden waardevolle gezondheidsdata. Deze data worden vooral verzameld voor primair gebruik: het verlenen van zorg. Secundaire toepassingen, zoals (wetenschappelijk) onderzoek, kwaliteitsverbetering en innovatie, stellen fundamenteel andere eisen aan datakwaliteit, datastandaardisatie en dataharmonisatie. Hierdoor is het voor ziekenhuizen – en met name regionale instellingen – complex en arbeidsintensief om gegevens beschikbaar te maken voor secundair gebruik. Door de komst van de European Health Data Space (EHDS) moet hier dringend een oplossing voor komen: deze Europese wetgeving vereist vanaf maart 2027 dat EU lidstaten (en alle datahouders daarbinnen) hun gezondheidsdata op een veilige, betrouwbare en gestandaardiseerde manier kunnen ontsluiten voor zowel primair als secundair gebruik.
+De Nederlandse zorg beschikt over grote hoeveelheden waardevolle gezondheidsdata. Deze data worden vooral verzameld voor primair gebruik: het verlenen van zorg. Secundaire toepassingen, zoals (wetenschappelijk) onderzoek, kwaliteitsverbetering en innovatie, stellen fundamenteel andere eisen aan datakwaliteit, datastandaardisatie en dataharmonisatie. Hierdoor is het voor ziekenhuizen – en met name regionale instellingen – complex en arbeidsintensief om gegevens beschikbaar te maken voor secundair gebruik. Mede door de komst van de European Health Data Space (EHDS) moet hier dringend een oplossing voor komen: deze Europese wetgeving vereist vanaf maart 2027 dat EU lidstaten (en alle datahouders daarbinnen) hun gezondheidsdata op een veilige, betrouwbare en gestandaardiseerde manier kunnen ontsluiten voor zowel primair als secundair gebruik.
 
 :::{.callout-note}
 

@@ -7,7 +7,9 @@ book:
   author:
     - Daniel Kapitan
     - Madou Derksen
-  date: "25/03/2026"
+    - Yannick Vinkesteijn
+    - Marlou van der Sande
+  date: "01/04/2026"
   chapters:
     - index.qmd
     - 01-inleiding-doelen.qmd
@@ -23,6 +25,8 @@ book:
     - 11-risicos-technische-schuld.qmd
     - 12-woordenlijst.qmd
     - references.qmd
+  appendices:
+    - architectuur-dataspaces.qmd
 
 bibliography: plugin.bib
 
@@ -38,6 +42,7 @@ format:
     theme:
       - cosmo
       - brand
+    lang: nl
     include-in-header:
       - text: |
           <script module src="https://plugin-healthcare.github.io/plugin-architecture/c4/likec4-views.js"></script>

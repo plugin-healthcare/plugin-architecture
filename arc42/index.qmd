@@ -2,10 +2,8 @@
 
 **Over arc42**
 
-arc42, de Template voor documentatie van software en systeem architectuur.
+© Dit document maakt gebruikt van de arc42 architectuur template, <https://arc42.org>. arc42 is een template voor documentatie van software en systeem architectuur, gecreeerd en onderhouden door Dr. Peter Hruschka, Dr. Gernot Starke en de open source community.
 
-Gecreeerd en onderhouden door Dr. Peter Hruschka, Dr. Gernot Starke en bijdragers.
+Template versie: 8.2-NL. De NL versie is gebaseerd op EN asciidoc template, maart 2023.
 
-Template Versie: 8.2-NL. De NL versie is gebaseerd op EN asciidoc template, March 2023.
 
-© We erkennen dat dit document materiaal gebruikt van de arc42 architectuur template, <https://arc42.org>.

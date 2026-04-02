@@ -8,9 +8,9 @@ Het verlenen van zorg vindt vaak plaats in een netwerk van zorgaanbieders uit ve
 - een bijbehorend **vertrouwensstelsel** met technische, organisatorische en juridische afspraken die nodig zijn om te zorgen dat burgers en zorgverleners kunnen vertrouwen op de data en op het veilige en verantwoorde gebruik ervan;
 - **generieke functies** met afspraken, standaarden en voorzieningen zoals voor identificatie, authenticatie en autorisatie en adressering.
 
-De datastation specificatie met PLUGIN als referentieimplementatie heeft als doel om een LDN voor secundair gebruik te realiseren. De uitgangspunten zoals zijn geformuleerd in de nationale visie en strategie voor het gezondheidsinformatiestelsel (NVS) zijn hierin leidend, te weten[^1]:
+In de nationale visie en strategie voor het gezondheidsinformatiestelsel (NVS) zijn vervolgens belangrijk uitgangspunten geformuleerd voor de realisatie van het LDN, te weten[^1]:
 
-- **Privacy en security by design:** privacy en gegevensbeveiliging worden al bij de ontwikkeling van functionaliteit voor het landelijk dekkend netwerk meegenomen in het ontwerp.
+- **Privacy en security by design:** privacy en gegevensbeveiliging worden al bij de ontwikkeling van functionaliteit voor het LDN meegenomen in het ontwerp.
 - Een hoge mate van **opensourcewerken:** door in openbaarheid vrij toegankelijke software en code te ontwikkelen, wordt het risico op leveranciersafhankelijkheid zoveel mogelijk voorkomen.
 - De mogelijkheid tot **schaalbaarheid** zodat functionaliteit later opgeschaald kan worden naar landelijk gebruik.
 - De mogelijkheid van **inbeheername door een publieke organisatie**, zodat beschikbaarheid van data geen verdienmodel wordt.
@@ -19,7 +19,7 @@ De datastation specificatie met PLUGIN als referentieimplementatie heeft als doe
 
 ## PLUGIN als referentieimplementatie van de datastation specificatie
 
-De PLUGIN architectuur neemt de [datastation specifcatie (v1.0)](https://health-ri.github.io/data-station-specification/) als uitgangspunt. Deze specificatie is in opdracht van Health-RI opgesteld om invulling te geven aan een landelijk dekkend netwerk voor secundair gebruik van zorggevens. PLUGIN/DHD en Health-RI hebben daarbij de intentie uitgesproken dat de PLUGIN infrastructuur een referentieimplementie is van deze specficitatie. In het onderstaande gaan we kort in op de belangrijkste uitgangspunten van de datastation specificatie. Voor meer details verwijzen we naar de specifiatie zelf.
+De PLUGIN architectuur bouwt voort op de [datastation specifcatie (v1.0)](https://health-ri.github.io/data-station-specification/). Deze specificatie is in opdracht van Health-RI opgesteld om in meer detail invulling te geven aan een landelijk dekkend netwerk voor secundair gebruik van zorggevens. PLUGIN/DHD en Health-RI hebben daarbij de intentie uitgesproken dat de PLUGIN infrastructuur een referentieimplementie is van deze specficitatie. In het onderstaande gaan we kort in op de belangrijkste uitgangspunten van de datastation specificatie. Voor meer details verwijzen we naar de specifiatie zelf.
 
 ### Een hybride, decentrale architectuur waarin datahouders en datagebruikers centraal staan
 
@@ -33,7 +33,7 @@ Om invulling te geven aan deze principes, gaat PLUGIN uit van een hybride, decen
 
 ![](./images/ehds-simpel.png)
 
-### Het zandlopermodel als leidraad voor interoperabiliteit
+### Het zandlopermodel als leidraad voor interoperabiliteit {#sec-zandlopermodel}
 
 Het concept van **datastations** een van de twee pijlers is van de PLUGIN architectuur. Dit concept kent echter verschillende verschijningsvormen:
 
