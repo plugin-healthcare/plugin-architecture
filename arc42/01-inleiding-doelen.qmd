@@ -42,7 +42,7 @@ Het gebruik van elektronische gezondheidsgegevens voor andere doeleinden dan die
 
 ## Requirementsoverzicht
 
-Het **Pl**atform voor **U**itwisseling en Her**g**ebruik van Kl**i**nische Data **N**ederland (PLUGIN) beoogt klinische data die routinematig in ziekenhuizen wordt vastgelegd op een veilige, schaalbare en duurzame wijze te ontsluiten voor secundair gebruik. PLUGIN richt zich op het ondersteunen van alle stappen in het proces van secundair gebruik zoals in TEHDAS2 is gedefinieerd.[^1] 
+Het **Pl**atform voor **U**itwisseling en Her**g**ebruik van Kl**i**nische Data **N**ederland (PLUGIN) beoogt klinische data die routinematig in ziekenhuizen wordt vastgelegd op een veilige, schaalbare en duurzame wijze te ontsluiten voor secundair gebruik. PLUGIN richt zich op het ondersteunen van alle stappen in het proces van secundair gebruik zoals in TEHDAS2 is gedefinieerd.[^inleiding-1] 
 
 ![Proces van secundair gebruik van data. Bron: [TEHDAS2](https://tehdas.eu)](./images/ehds-user-journey.svg).
 
@@ -72,7 +72,7 @@ Deze laatste fase van het gebruikerstraject betreft de plichten van de gegevensg
 
 :::
 
-In TEHDAS2 is een eerste aanzet gemaakt om het proces van secundair gebruik naar requirements.[^2] Voor PLUGIN zijn de functionele vereisten voor BVOs en gefedereerde gegevensverwerking de meest essentiele omdat die expliciet aangeven wat er nodig is om datahouders en datagebruikers te ondersteunen. Het is goed om te benadrukken dat TEHDAS2 hierin ook expliciet ingaat op verschillende vormen van _federated computing_. 
+In TEHDAS2 is een eerste aanzet gemaakt om het proces van secundair gebruik naar requirements.[^inleiding-2] Voor PLUGIN zijn de functionele vereisten voor BVOs en gefedereerde gegevensverwerking de meest essentiele omdat die expliciet aangeven wat er nodig is om datahouders en datagebruikers te ondersteunen. Het is goed om te benadrukken dat TEHDAS2 hierin ook expliciet ingaat op verschillende vormen van _federated computing_. 
 
 ::: callout-note
 ### Definities federated computing in TEHDAS2
@@ -259,5 +259,5 @@ Naast de functionele eisen, streeft PLUGIN ernaar om de kwaliteitseisen zoals in
 | *Datahouders* | *\<Contact-1\>* | *\<Verwachting-1\>* |
 | *Datagebruikers* | *\<Contact-2\>* | *\<Verwachting-2\>* |
 
-[^1]: TEHDAS staat voor Towards European Health Data Space. Het is een samenwerking van 29 Europese landen om gezondheidsgegevens op een verantwoord manier herbruikbaar te maken, bijvoorbeeld voor onderzoek, innovatie of beleid. Binnen deze samenwerking worden richtlijnen en specificaties geschreven, die voor een deel terugkomen in uitvoeringshandelingen. TEHDAS2 refereert naar de tweede consultatie ronde van richtlijnen en ontwerpprincipes.
-[^2]: TEHDAS2 [7.4 Draft technical, functional and security specifications of Secure Processing Environments](https://tehdas.eu/wp-content/uploads/2025/09/draft-technical-functional-and-security-specifications-of-secure-processing-environments.pdf)
+[^inleiding-1]: TEHDAS staat voor Towards European Health Data Space. Het is een samenwerking van 29 Europese landen om gezondheidsgegevens op een verantwoord manier herbruikbaar te maken, bijvoorbeeld voor onderzoek, innovatie of beleid. Binnen deze samenwerking worden richtlijnen en specificaties geschreven, die voor een deel terugkomen in uitvoeringshandelingen. TEHDAS2 refereert naar de tweede consultatie ronde van richtlijnen en ontwerpprincipes.
+[^inleiding-2]: TEHDAS2 [7.4 Draft technical, functional and security specifications of Secure Processing Environments](https://tehdas.eu/wp-content/uploads/2025/09/draft-technical-functional-and-security-specifications-of-secure-processing-environments.pdf)

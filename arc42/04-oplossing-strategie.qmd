@@ -2,7 +2,7 @@
 
 ## Architectuurpatronen en -principes
 
-De belangrijkste ontwerpprincipes van PLUGIN zijn gebaseerd op de volgende architectuurpatronen[^1] uit software engineering.
+De belangrijkste ontwerpprincipes van PLUGIN zijn gebaseerd op de volgende architectuurpatronen[^strategie-1] uit software engineering.
 
 Ten eerste gaan we uit van het **pipes & filters** patroon, wat een structuur biedt voor systemen die gegevensstromen verwerken. Elke verwerkingsstap voert een bepaalde functie uit en past eventueel een filter (selectie) toe. Gegevens worden tussen aangrenzende stappen doorgegeven. Door filters op nieuw de combineren kunnen afzonderlijke verwerkingsstappen hergebruikt worden voor vergelijkbare 'data pijplijnen'.
 
@@ -22,18 +22,18 @@ In onderstaande gaan we in meer detail in op een aantal van deze patronen.
 
 ## Processing hubs in decentrale netwerken
 
-Om het concept van _data visiting_ toe te passen is een netwerk van datastations nodig die met elkaar verbonden zijn. De manier waarop deze datastations zijn verbonden (de zogenaamde netwerk topologie) is bepalend voor de architectuur van PLUGIN. We kennen grofweg drie netwerk topologieën: centraal, decentraal en gedistribueerd.[^2] 
+Om het concept van _data visiting_ toe te passen is een netwerk van datastations nodig die met elkaar verbonden zijn. De manier waarop deze datastations zijn verbonden (de zogenaamde netwerk topologie) is bepalend voor de architectuur van PLUGIN. We kennen grofweg drie netwerk topologieën: centraal, decentraal en gedistribueerd.[^strategie-2] 
 
 ![Soorten netwerken: a) centraal, b) decentraal, c) distribueerd.](./images/type-of-networks.png)
 
-Voor het uitvoeren van gefedereerde berekeningen zijn er twee mogelijkheden:[^3]
+Voor het uitvoeren van gefedereerde berekeningen zijn er twee mogelijkheden:[^strategie-3]
 
 1. Datastations zijn verbonden met één centrale coordinator (ook wel bekend als een _hub-and-spoke_ netwerk).
 2. Datastations zijn met elkaar verbonden door middel van een een distribueerd netwerk (ook wel _peer-to-peer_ genoemd).
 
 ![Gefedereerde gegevensverwerking met een a) centrale processing hub, en b) _peer-to-peer_ netwerk.](./images/fl-types.png)
 
-De meest gebruikte vorm van gefedereerde gegevensverwerking gaat uit van een centrale coordinator die de datastations aanstuurt. Het concept van een _Federated Database System (FDBS)_ is in 1985 beschreven en wordt al jaren gebruikt voor het uitvoeren van gefedereerde analyse (_queries_) over meerdere databases.[^4] Het concept van gefedereerd leren zoals in 2017 door Google is geintroduceerd[^5] maakt ook gebruik van een centrale coordinator functie.
+De meest gebruikte vorm van gefedereerde gegevensverwerking gaat uit van een centrale coordinator die de datastations aanstuurt. Het concept van een _Federated Database System (FDBS)_ is in 1985 beschreven en wordt al jaren gebruikt voor het uitvoeren van gefedereerde analyse (_queries_) over meerdere databases.[^strategie-4] Het concept van gefedereerd leren zoals in 2017 door Google is geintroduceerd[^strategie-5] maakt ook gebruik van een centrale coordinator functie.
 
 In de beschrijving van datastations gaan we dus uit van een processing hub als een centrale coordinator, waarop de datagebruiker inlogt om toegang om berekeningen te kunnen initieren in het netwerk van datastations. Federated computing met een _peer-to-peer_ netwerk zijn expliciet niet in scope van de PLUGIN architectuur.
 
@@ -41,7 +41,7 @@ Daarnaast moet het in de context van de EHDS mogelijk zijn om te werken met _fed
 
 ## Composable datastations
 
-De datastations zijn ontworpen met de principes van de composable data stack[^6]:
+De datastations zijn ontworpen met de principes van de composable data stack[^strategie-6]:
 
 1. **Modulariteit:** Componenten (bouwstenen) kunnen onafhankelijk van elkaar worden vervangen of geschaald.
 2. **Interoperabiliteit:** Dankzij open standaarden kunnen verschillende systemen zonder kostbare conversies samenwerken.
@@ -78,14 +78,14 @@ De catalogus in de composable data stack refereert naar het information schema v
 :::
 :::
 
-Parallel aan de decompositie van dataverwerkingssystemen is de capaciteit van _single-node processing units_ zodanig toegenomen dat het inmiddels mogelijk is om tot circa 10 TB aan data op een enkele machine te verwerken en analyseren.[^7] In het ontwerp van een datastation gaan we er dus vanuit dat het systeem als geheel op een (virtuele) machine past, wat de complexiteit van een datastation aanzienlijk vereenvoudigd.
+Parallel aan de decompositie van dataverwerkingssystemen is de capaciteit van _single-node processing units_ zodanig toegenomen dat het inmiddels mogelijk is om tot circa 10 TB aan data op een enkele machine te verwerken en analyseren.[^strategie-7] In het ontwerp van een datastation gaan we er dus vanuit dat het systeem als geheel op een (virtuele) machine past, wat de complexiteit van een datastation aanzienlijk vereenvoudigd.
 
-[^1]: @buschmann1996system
-[^2]: @baran1964distributed
-[^3]: @rieke2020future
-[^4]: @heimbigner1985federated
-[^5]: @mcmahan2017communication
-[^6]: @pedreira2023composable, @pedreira2024composable
-[^7]: @raasveldt2019duckdb, @nahrstedt2024empirical
+[^strategie-1]: @buschmann1996system
+[^strategie-2]: @baran1964distributed
+[^strategie-3]: @rieke2020future
+[^strategie-4]: @heimbigner1985federated
+[^strategie-5]: @mcmahan2017communication
+[^strategie-6]: @pedreira2023composable, @pedreira2024composable
+[^strategie-7]: @raasveldt2019duckdb, @nahrstedt2024empirical
 
 
