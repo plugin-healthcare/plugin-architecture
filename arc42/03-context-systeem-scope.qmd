@@ -70,6 +70,21 @@ In de beschrijving van datastations gaan we dus uit van een processing hub, waar
 
 Daarnaast moet het in de context van de EHDS mogelijk zijn om te werken met _federations of federations_. De hybride architectuur van PLUGIN die we voor ogen hebben kent een gelaagdheid van knooppunten. Denk bijvoorbeeld aan een zorginstelling die participeert in een regionaal samenwerkingsverband, waarbij vervolgens verschillende regionale knooppunten opgaan in een landelijk netwerk. Daarbovenop kunnen landelijke knooppunten onderdeel uitmaken van een Europese federatie. In de uitwerking van de architectuur gaan we daarom uit van een _decentraal netwerk_ dat een gelaagdheid kent van meerdere netwerken van BVOs (netwerk type b in bovenstaande illustratie).
 
+## Systeemcomponenten PLUGIN
+
+Gegeven deze business context bestaat PLUGIN als platform uit de volgende deelsystemen.
+
+
+| Deelsystemen | Omschrijving |
+|-------------------------|--------------|
+| PLUGIN-Lake | Component waarmee het PLUGIN-datastation wordt gevuld |
+| PLUGIN-Hub | Component waarmee gegevensaanleveringen kunnen worden uitgevoerd |
+| PLUGIN-Analytics | Component waarmee federatieve analyses kunnen worden uitgevoerd |
+| PLUGIN-ML | Component waarmee federatief machine learning modellen ontwikkeld kunnen worden |
+| PLUGIN-Rosetta | Component waarmee mappings en transformaties op een uniforme manier beheerd en hergebruikt kunnen worden  |
+| PLUGIN-NUTS | Component voor decentrale identificatie en ... |
+| PLUGIN-... | ... |
+
 [^1]: @baran1964distributed
 [^2]: @rieke2020future
 [^3]: @heimbigner1985federated

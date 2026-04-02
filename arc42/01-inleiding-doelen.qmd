@@ -4,26 +4,75 @@
 
 De Nederlandse zorg beschikt over grote hoeveelheden waardevolle gezondheidsdata. Deze data worden vooral verzameld voor primair gebruik: het verlenen van zorg. Secundaire toepassingen, zoals (wetenschappelijk) onderzoek, kwaliteitsverbetering en innovatie, stellen fundamenteel andere eisen aan datakwaliteit, datastandaardisatie en dataharmonisatie. Hierdoor is het voor ziekenhuizen – en met name regionale instellingen – complex en arbeidsintensief om gegevens beschikbaar te maken voor secundair gebruik. Door de komst van de European Health Data Space (EHDS) moet hier dringend een oplossing voor komen: deze Europese wetgeving vereist vanaf maart 2027 dat EU lidstaten (en alle datahouders daarbinnen) hun gezondheidsdata op een veilige, betrouwbare en gestandaardiseerde manier kunnen ontsluiten voor zowel primair als secundair gebruik.
 
-Het **Pl**atform voor **U**itwisseling en Her**g**ebruik van Kl**i**nische Data **N**ederland (PLUGIN) beoogt klinische data die routinematig in ziekenhuizen wordt vastgelegd te ontsluiten op een veilige, schaalbare en duurzame wijze. In eerste instantie richt PLUGIN zich op data zoals die in het Elektronisch Patiëntendossier (EPD) worden vastgelegd, maar op termijn kunnen ook andere databronnen worden ontsloten, zoals beeldmateriaal in PACS-systemen en laboratoriumgegevens uit LIMS-systemen.
+:::{.callout-note}
 
-De architectuur van PLUGIN neemt onverkort de uitgangspunten voor landelijk dekkend netwerk voor databeschikbaarheid over, te weten[^01-inleiding-doelen-1]:
+## De belangrijkste concepten rondom secundair gebruik
 
-[^01-inleiding-doelen-1]: Zie <https://www.datavoorgezondheid.nl/onderwerpen/l/landelijk-dekkend-netwerk>
+De belangrijkste concepten rondom secundair gebruik zijn gedefinieerd in de nieuwe Europese wetgeving, met name de EHDS (hoofdstuk IV, artikel 50 t/m 81) en de Data Governance Act (DGA).
 
-- **Privacy en security by design:** privacy en gegevensbeveiliging worden al bij de ontwikkeling van functionaliteit voor het landelijk dekkend netwerk meegenomen in het ontwerp.
-- **Een hoge mate van opensourcewerken:**\*\* door in openbaarheid vrij toegankelijke software en code te ontwikkelen, wordt het risico op leveranciersafhankelijkheid zoveel mogelijk voorkomen.
-- De mogelijkheid tot **schaalbaarheid** zodat functionaliteit later opgeschaald kan worden naar landelijk gebruik.
-- De mogelijkheid van **inbeheername door een publieke organisatie** zodat beschikbaarheid van data geen verdienmodel wordt.
-- De **brede toepasbaarheid** van het landelijk dekkend netwerk over het gehele zorg- en welzijnsdomein en ook voor secundair gebruik.
-- **Data worden zoveel mogelijk opgeslagen bij de bron.** Altijd onder verantwoordelijkheid en invloedssfeer van de bronhouder.
+:::{.panel-tabset}
 
-Ondanks deze uitgangspunten, kunnen we constateren dat tijdens de ontwikkeling van PLUGIN een serieuze lancune ten aanzien van de uitwerking van de principes van *privacy en security by design* en *data worden zoveel mogelijk opgeslagen bij de bron*. Het merendeel van de huidige oplossingen gaan uit van centrale data-opslag, wat in schril contract staat met [overweging 80](https://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=OJ:L_202500327#rct_80) van de EHDS:
+### Beveiligde verwerkingsomgeving (BVO)
 
-> Gezien de gevoeligheid van gezondheidsgegevens moeten waar mogelijk beginselen als “privacy door ontwerp” en “privacy door standaardinstellingen” en het concept “breng de vragen naar de gegevens in plaats van die gegevens te verplaatsen” in acht worden genomen.
+Een beveiligde omgeving waarin gezondheidsgegevens verwerkt kunnen worden voor bijvoorbeeld wetenschappelijk onderzoek. Dit kan een centrale BVO zijn, zoals bijvoorbeeld de [CBS Microdata omgeving](https://www.cbs.nl/nl-nl/onze-diensten/maatwerk-en-microdata/microdata-zelf-onderzoek-doen), een gefedereerde BVO of een hybride combinatie daarvan. De focus van deze specificatie is dat datastations als hoeksteen kunnen fungeren voor een netwerk van BVOs.
 
-Het concept van *data visiting*, ook wel bekend als *federated computing*, *algorithm-to-the-data* of *Personal Health Train (PHT)*, wordt nergens in de EHDS nader toegelicht2. De TEHDAS2 consultatie[^01-inleiding-doelen-2] gaat hier tot op zekere hoogte wel op in en maakt een aanzet voor de definitie van federated computing.
+### Datagebruiker
 
-[^01-inleiding-doelen-2]: [TEHDAS2](https://tehdas2.eu) is een Europees programma dat zich richt op het opstellen van richtlijnen en technische specificaties secundair gebruik van gezondheidsgegevens in Europa. Het programma loopt van 1 mei 2024 tot 31 december 2026. De informatie die beschikbaar was per 1 januari 2026 is meegenomen in de architectuur van PLUGIN.
+Een persoon of organisatie die toegang heeft gekregen tot elektronische gezondheidsgegevens voor secundair gebruik. Bijvoorbeeld een onderzoeker, een beleidsmederwerker of een ontwikkelaar van commerciële producten. In EHDS-terminologie: de gebruiker van gezondheidsegegevens (_Health Data User_).
+
+### Data-afnemer
+
+Een persoon of organisatie die verwerkingsverantwoordelijkheid heeft over het gebruik van de data door de datagebruiker. Een data-afnemer is deelnemer aan de dataspace voor secundair gebruik.
+
+### Datahouder
+
+Een datahouder is een persoon of organisatie (publiek of privaat) die gezondheidsdata beheert. Veel organisaties vallen hieronder. Het gaat niet alleen om ziekenhuizen, maar bijvoorbeeld ook iedereen die producten of diensten ontwikkelt die bestemd zijn voor de zorgsector of gezondheidszorg, of ontwikkelaars van wellnessapps, of wetenschappelijk onderzoekers die zich bezighouden met de zorgsector of gezondheidszorg.
+
+### Dataleverancier
+
+Een datahouder die niet is uitgezonderd op grond van artikel 50 van de EHDS is dataleverancier en daarmee deelnemer aan de dataspace voor secundair gebruik.
+
+### Secundair gebruik
+
+Het gebruik van elektronische gezondheidsgegevens voor andere doeleinden dan die waarvoor ze verzameld zijn. Het gebruiken van gezondheidsgegevens, die zijn vastgelegd voor de behandeling van een patiënt, voor wetenschappelijk onderzoek, is een voorbeeld van secundair gebruik.
+:::
+:::
+
+
+
+## Requirementsoverzicht
+
+Het **Pl**atform voor **U**itwisseling en Her**g**ebruik van Kl**i**nische Data **N**ederland (PLUGIN) beoogt klinische data die routinematig in ziekenhuizen wordt vastgelegd op een veilige, schaalbare en duurzame wijze te ontsluiten voor secundair gebruik. PLUGIN richt zich op het ondersteunen van alle stappen in het proces van secundair gebruik zoals in TEHDAS2 is gedefinieerd.[^1] 
+
+![Proces van secundair gebruik van data. Bron: [TEHDAS2](https://tehdas.eu)](./images/ehds-user-journey.svg).
+
+
+
+:::{.panel-tabset}
+
+## Data zoeken en vinden (_data discovery_)
+
+Voordat een datagebruiker gezondheidsgegevens kan gebruiken, moet worden nagegaan of de benodigde gegevens beschikbaar zijn in het benodigde formaat voor het secundaire gebruiksdoel. Datasets die beschikbaar zijn in de EU zijn te vinden in een catalogus van gezondheidsgevens. Zodra de data zijn gevonden, kan de datagebruiker beginnen met het aanvragen van de gegevens.
+
+## Data aanvragen (_data access_)
+
+Het aanvragen van toegang tot data is feitelijk een aanvraag tot verwerking door de datagebruiker van gegevens die door een gegevenshouder zijn verstrekt, in overeenstemming met specifieke technische, juridische of organisatorische vereisten, zonder noodzakelijkerwijs de overdracht of het downloaden van dergelijke gegevens te impliceren. (Verordening inzake Gegevensgovernance (DGA), Artikel 2(8), (9) en (13)). Op basis van de aanvraag wordt een vergunning verleend voor toegang tot de gegevens of een verzoek om data wordt goedgekeurd.
+
+## Data klaarzetten voor verwerking (_data preparation_)
+
+Gedurende deze fase leveren de gegevenshouders de benodigde gegevens aan de HDAB (Gezondheidsgegevens Toegangsorgaan), die de gegevens voorbereidt voor secundair gebruik. Hierbij worden technieken toegepast voor pseudonimisering, anonimisering, generalisatie, onderdrukking en randomisering van persoonsgegevens. Het beginsel van dataminimalisatie (conform de AVG/GDPR) moet worden gerespecteerd om de privacy te waarborgen.
+
+## Data gebruiken (_use of data_)
+
+In deze fase voert de gebruiker analyses uit op basis van de ontvangen gegevens voor het doel dat is gedefinieerd in de aanvraagfase. Het analyseren van gegevens op persoonsniveau moet gebeuren in een BVO. De looptijd van de vergunning, en daarmee de periode waarbinnen de gegevens mogen worden geanalyseerd, is vastgelegd in de verordening (Art 68(12)).
+
+## Afronding (_finalisation_)
+
+Deze laatste fase van het gebruikerstraject betreft de plichten van de gegevensgebruiker met betrekking tot de analyseresultaten die voortvloeien uit het secundaire gebruik van gegevens. De gegevensgebruiker moet de resultaten van het secundaire gebruik van gezondheidsgegevens publiceren binnen 18 maanden na de voltooiing van de gegevensverwerking in een veilige verwerkingsomgeving of na ontvangst van de gevraagde gezondheidsgegevens. De resultaten moeten in een anoniem formaat worden verstrekt. De gegevensgebruiker moet de HDAB (instantie voor toegang tot gezondheidsgegevens) op de hoogte stellen van de resultaten. Bovendien moet de gegevensgebruiker in de output vermelden dat de resultaten zijn verkregen door gebruik te maken van gegevens in het kader van de EHDS (Europese Ruimte voor Gezondheidsgegevens).
+
+:::
+
+In TEHDAS2 is een eerste aanzet gemaakt om het proces van secundair gebruik naar requirements.[^2] Voor PLUGIN zijn de functionele vereisten voor BVOs en gefedereerde gegevensverwerking de meest essentiele omdat die expliciet aangeven wat er nodig is om datahouders en datagebruikers te ondersteunen. Het is goed om te benadrukken dat TEHDAS2 hierin ook expliciet ingaat op verschillende vormen van _federated computing_. 
 
 ::: callout-note
 ### Definities federated computing in TEHDAS2
@@ -33,38 +82,7 @@ Het concept van *data visiting*, ook wel bekend als *federated computing*, *algo
 - **Gefedereerd leren:** een specifieke vorm van gefedereerde berekening waarbij modellen worden getraind en gevalideerd op gedistribueerde BVOs. De ruwe data wordt niet gedeeld tussen de BVOs. In plaats daarvan worden alleen de model updates gedeeld om daarmee betere data privacy en beveiliging te bereiken. Omdat het moeilijk is om de anonimiteit van tussentijdse resultaten te beoordelen, is het essentieel dat gefedereerd leren gebeurd in een vertrouwd netwerk van BVOs.
 :::
 
-## Requirementsoverzicht
-
-| Functionele componenten | Omschrijving |
-|-------------------------|--------------|
-| PLUGIN-Lake | Component waarmee het PLUGIN-datastation wordt gevuld |
-| PLUGIN-Hub | Component waarmee gegevensaanleveringen kunnen worden uitgevoerd |
-| PLUGIN-Analytics | Component waarmee federatieve analyses kunnen worden uitgevoerd |
-| PLUGIN-ML | Component waarmee federatief machine learning modellen ontwikkeld kunnen worden |
-
-| Generieke componenten | Omschrijving |
-|-------------------------|--------------|
-| PLUGIN-Rosetta | Component waarmee transformaties  |
-| PLUGIN-NUTS | Component voor decentrale identificatie en ... |
-| PLUGIN-... | Component waarmee gegevensaanleveringen kunnen worden uitgevoerd |
-
-
-## Kwaliteitseisen
-
-PLUGIN streeft ernaar om de kwaliteitseisen zoals in TEHDAS2 zijn geformuleerd te realiseren. De eisen zijn in onderstaande tabellen weergegeven. **TO DO:** prioritering toevoegen aan tabellen(laag-middel-hoog).
-
-
-::: {.callout-note collapse="true"}
-## Vereisten voor gevoelige data (SD)
-| ID | Vereisten |
-|----|-----------|
-| SDR-1 | Ongeautoriseerde gebruikers MOGEN GEEN toegang hebben tot gevoelige data |
-| SDR-2 | Systeembeheerders ZOUDEN GEEN toegang moeten hebben tot gevoelige data |
-| SDR-3 | Gevoelige data MOET in een beveiligd formaat worden opgeslagen en overgedragen |
-| SDR-4 | Bescherming van gevoelige data MOET worden gedaan met algemeen geaccepteerde, veilige algoritmes gecombineerd met effectieve isolatiemaatregelen |
-:::
-
-::: {.callout-note collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Vereisten voor Beveiligde Verwerkingsomgeving (BVO)
 
 | ID | Vereisten |
@@ -80,72 +98,22 @@ PLUGIN streeft ernaar om de kwaliteitseisen zoals in TEHDAS2 zijn geformuleerd t
 |SPER-9 | Alle API's die BVO-componenten verbinden MOETEN worden gelogd en gemonitord |
 :::
 
-::: {.callout-note collapse="true"}
-## European Health Data Space (EHDS) BVO-vereisten
-
+::: {.callout-caution collapse="true"}
+## Vereisten voor gefedereerde gegevensverwerking (FC)
 | ID | Vereisten |
 |----|-----------|
-|EHDSR-1 | HDAB MOET toegang tot elektronische gezondheidsdata verlenen middels een data-vergunning |
-|EHDSR-2 | Elektronische gezondheidsdata MOET worden benaderd via een BVO |
-|EHDSR-3 | Natuurlijke personen vermeld in de data-vergunning MOGEN de geïdentificeerde elektronische gezondheidsdata in de BVO benaderen |
-|EHDSR-4 | TOMs MOETEN het risico op ongeautoriseerde toegang tot elektronische gezondheidsdata in BVOs minimaliseren |
-|EHDSR-5 | Geautoriseerde gezondheidsdata-gebruikers MOETEN sterk geïdentificeerd zijn |
-|EHDSR-6 | Alle toegangs- en operatielogs van de BVO MOETEN beschikbaar zijn voor verificatie en auditing |
-|EHDSR-7 | Alle BVO-logs MOETEN de actor identificeren |
-|EHDSR-8 | Alle BVO-logs MOETEN minimaal één jaar bewaard worden |
-|EHDSR-9 | TOMs van BVOs MOETEN gemonitord worden op beveiliging |
-|EHDSR-10 | Elektronische gezondheidsdata MOET geïdentificeerd zijn in de data-vergunning |
-|EHDSR-11 | Gezondheidsdata-houder MOET de vergunde elektronische gezondheidsdata uploaden zodat deze beschikbaar is in een BVO voor de gezondheidsdata-gebruiker |
-|EHDSR-12 | Gezondheidsdata-gebruiker MAG alleen niet-persoonlijke elektronische gezondheidsdata uit de BVO downloaden. Geanonimiseerde persoonsgegevens zijn niet-persoonlijk |
-|EHDSR-13 | HDAB MOET door beoordeling waarborgen dat geen persoonsgegevens uit de BVO worden gehaald door de gezondheidsdata-gebruiker |
-|EHDSR-14 | Reguliere interne en externe beveiligingsaudits MOETEN worden uitgevoerd op BVO TOMs |
-|EHDSR-15 | BVO TOMs MOETEN risico-beoordelingen ondergaan |
-|EHDSR-16 | HDABs MOETEN waarborgen dat BVO TOMs-audits worden uitgevoerd en dat risico-beoordelingen leiden tot risicobeperkingen |
-|EHDSR-17 | Wanneer BVOs genoemd in de EU Data Act worden gebruikt voor elektronische gezondheidsdata, MOETEN EHDS-regels en -vereisten worden nageleefd |
-|EHDSR-18 | BVOs MOETEN zich aanpassen aan TOMs die de Commissie de EHDS uitvoeringshandelingen in zal schrijven |
+|FCR-1 | BVO MOET gemeenschappelijke datamodellen ondersteunen, zoals OMOP CDM en toepasselijke GA4GH-standaarden, om technische en semantische interoperabiliteit mogelijk te maken |
+|FCR-2 | De HDAB MOET (intern of in samenwerking met BVO-operators) de vereiste processen hebben om aanvullende datamodellen in te zetten die door data-gebruikers worden vereist |
+|FCR-3 | BVO MOET de deployering en uitvoering ondersteunen van softwarecomponenten die nodig zijn om gefedereerde gegevensverwerking uit te voeren zoals beschreven en geautoriseerd in de data-vergunning, onderhevig aan toepasselijke beveiligingscontroles |
+|FCR-4 | De HDAB MOET de vereiste processen hebben om het gebruik van softwarecomponenten die nodig zijn in federated computing te autoriseren |
+|FCR-5 | BVO MOET een data-gebruikersapplicatie in staat stellen om anonieme resultaten uit de BVO op te halen om samen te voegen met resultaten die zijn opgehaald uit andere BVOs |
+|FCR-6 | BVO MOET functionaliteit bevatten om de anonimiteit van resultaten te waarborgen, met toepasselijke methoden zoals: (1) voorafgaande beoordeling van softwarecomponenten die de resultaten produceren, (2) geautomatiseerde anonymiteitsbeoordeling, (3) aanvullende privacy-beschermingsmechanismen (zoals differential privacy) en (4) handmatige inspecties |
+|FCR-7 | De HDAB MOET processen hebben vastgesteld voor het goedkeuren van geautomatiseerde toegangsrechten voor data-gebruikersapplicaties in de context van data-vergunningautorisatie |
+|FCR-8 | BVO MOET een open en gestandaardiseerde interface bieden die nodig is om informatie uit te wisselen met andere vertrouwde BVOs zoals nodig om federatief leren uit te voeren |
+|FCR-9 | BVO ZOU het gebruik van privacy-beschermingsmethoden (zoals differential privacy) voor federatief leren moeten ondersteunen |
 :::
 
-::: {.callout-note collapse="true"}
-## Operationele (OP) EHDS BVO-vereisten
-
-| ID | Vereisten |
-|----|-----------|
-|OPR-1 | De BVO-operator MOET procedures hebben om gebruikersauthenticatie en toegangsbeperkingen af te dwingen op basis van de data-vergunning die verbonden is aan de verwerking van gezondheidsdata |
-|OPR-2 | BVO-operator MOET het aantal geautoriseerde medewerkers en eventuele onderaannemers met hoge machtigingen die hen in staat stellen gezondheidsdata te benaderen of verwerken beperken en MOET effectieve procedures implementeren voor het beheren en monitoren van dergelijke toegang binnen de BVO-infrastructuur |
-|OPR-3 | BVO-operator ZOU een Dienstenportfolio met alle diensten moeten bijhouden |
-|OPR-4 | BVO-operator ZOU een configuratiemanagementdatabase (CMDB) moeten bijhouden |
-|OPR-5 | BVO-operator MOET mechanismen implementeren om de beveiligde verwerkingsomgeving te beëindigen bij het aflopen van de data-vergunning | Alle elektronische gezondheidsdata binnen de omgeving MOET worden verwijderd of onherstelbaar worden gemaakt binnen zes maanden na het aflopen van de vergunning, inclusief back-ups of redundante kopieën | Procedures MOETEN formeel worden gedocumenteerd, gemonitor en afgestemd op risico-beoordelingen en vertrouwelijkheidsvereisten | |
-|OPR-6 | BVO-operator MOET regelmatige interne en externe beveiligingsaudits ondergaan om naleving van beveiligings-, gegevensbeschermings- en operationele vereisten te beoordelen |
-|OPR-7 | BVO-operator MOET logs en toegangsregistraties bewaren om traceerbaarheid van alle operaties te waarborgen en audits of onderzoeken mogelijk te maken wanneer nodig |
-|OPR-8 | De BVO-operator MOET actuele documentatie bijhouden van alle relevante technische, organisatorische en beveiligingsprocessen |
-|OPR-9 | De BVO-operator ZOU een Compliance Officer moeten aanwijzen of verantwoordelijkheden moeten toewijzen om naleving van juridische, ethische en technische verplichtingen te waarborgen |
-|OPR-10 | BVO-operator MOET een operationeel informatiebeveiligingsmanagementsysteem (ISMS) hebben |
-|OPR-11 | BVO-operator ZOU een Servicemanagementsysteem moeten opzetten |
-|OPR-12 | BVO-operators MOETEN regelmatig gegevensbeschermingseffectbeoordelingen (DPIA's) uitvoeren |
-[TODO]|OPR-13 | BVO-operator MOET beleid handhaven om beveiliging rond inkoopsystemen en ontwikkeling en gebruik van systemen te waarborgen | |
-|OPR-14 | BVOs ZOUDEN een wijzigingsbeheerproces met impact- en risicobeoordeling moeten hanteren |
-|OPR-15 | BVO-operator ZOU een release- en implementatiebeheerproces moeten hanteren |
-|OPR-16 | BVO-operator MOET acties van elk geautoriseerd projectlid volgen en loggen, inclusief gevallen van datatoegang, verwerking, weergave en output |
-|OPR-17 | BVO-operator MOET een veilig opslagproces implementeren om logs van gebruikerstoegang tot de BVO minimaal één jaar te bewaren |
-|OPR-18 | Een rapportageproces MOET aanwezig zijn om HDABs en relevante autoriteiten op de hoogte te stellen van beveiligingsincidenten of bevindingen van niet-naleving, inclusief datalekken of misbruik |
-|OPR-19 | BVO-operator ZOU gedefinieerde tijdslijnen moeten hanteren en afdwingen voor het communiceren en rapporteren van incidenten aan de HDAB: Vroege waarschuwingsmelding: binnen 24 uur na detectie van het incident. Gedetailleerde incidentmelding: binnen 72 uur na detectie van het incident. Definitief incidentrapport: uiterlijk één maand na het incident |
-|OPR-20 | BVO-operator MOET in staat zijn om toegang en verwerkingsactiviteiten binnen de BVO onmiddellijk te stoppen wanneer misbruik of datalekken worden geïdentificeerd |
-|OPR-21 | BVO-operator MOET rampherstelprocedures hebben om de beschikbaarheid en integriteit van de BVO-diensten te herstellen, inclusief kritieke systeemcomponenten, configuraties en platformfunctionaliteit, vanuit schone back-ups, en om normale dienstoperaties te hervatten na een incident |
-|OPR-22 | BVO-operator MOET robuuste beveiligingsmaatregelen hanteren om data te beschermen, inclusief het gebruik van firewalls, encryptie en inbraakdetectiesystemen, om ongeautoriseerde toegang, wijziging of verwijdering van gevoelige informatie te voorkomen |
-|OPR-23 | Gezondheidsdata-gebruikers, HDAB-personeel en BVO-operatorpersoneel die interacteren met de BVO MOETEN gedetailleerde, rolspecifieke informatie of training ontvangen over gezondheidsdata-verwerking, EHDS-nalevingsvereisten en best practices op het gebied van beveiliging volgens de AVG |
-|OPR-24 | De BVO-operator MOET strategieën implementeren voor back-upbeheer, rampherstel en crisismanagement |
-|OPR-25 | De BVO-operator MOET cybersecurityprocedures implementeren om regelmatig de effectiviteit van risicobeheermaatregelen te evalueren en fundamentele cybersecurity-praktijken te bevorderen en noodzakelijke training te bieden |
-|OPR-26 | BVO-operator ZOU SLA's moeten definiëren die het volgende omvatten: garanties voor uptime, reactie-/oplostijden voor incidenten, inclusief beveiligings-SLA's, zoals data-encryptie garanties, reactietijden bij incidenten en auditlogging |
-|OPR-27 | De BVO-operator ZOU regelmatig back-ups naar het platform moeten herstellen als onderdeel van standaard feature-ontwikkeling en operationele activiteiten, om paraatheid voor incidentrespons te waarborgen |
-|OPR-28 | De BVO-operator MOET een formeel patchbeheerbeleid implementeren om beveiligingspatches tijdig te identificeren, evalueren en toepassen op basis van ernst |
-|OPR-29 | BVO-operator MOET een systeemupdateproces opzetten om tijdige en veilige updates van software, OS en firmware te waarborgen, getest voorafgaand aan implementatie |
-|OPR-30 | Een wijzigingsbeheerproces ZOU moeten worden gebruikt voor het beoordelen van de impact van patches en updates voordat deze op de productieomgeving worden toegepast |
-|OPR-31 | BVO-operator MOET toegewijde technische ondersteuning bieden met duidelijk gedefinieerde SLA's en escalatiepaden voor het aanpakken van incidenten en technische problemen |
-|OPR-32 | Ondersteunend personeel van de BVO-operator ZOU getraind moeten zijn in informatiebeveiligings- en privacyprocedures, met duidelijk gedefinieerde rollen en verantwoordelijkheden |
-|OPR-33 | Een kennisbank en ondersteunende documentatie ZOU moeten worden bijgehouden om te helpen bij het oplossen van veelvoorkomende problemen en om incidentresponsetijden te verbeteren |
-:::
-
-::: {.callout-note collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Federatieve BVO-vereisten (FSPE)
 | ID | Vereisten |
 |----|-----------|
@@ -161,22 +129,7 @@ PLUGIN streeft ernaar om de kwaliteitseisen zoals in TEHDAS2 zijn geformuleerd t
 |FSPER-10 | Een federatie-BVO MAG aan federatieve verwerkingsvereisten voldoen |
 :::
 
-::: {.callout-note collapse="true"}
-## Vereisten voor gefedereerde gegevensverwerking (FC)
-| ID | Vereisten |
-|----|-----------|
-|FCR-1 | BVO MOET gemeenschappelijke datamodellen ondersteunen, zoals OMOP CDM en toepasselijke GA4GH-standaarden, om technische en semantische interoperabiliteit mogelijk te maken |
-|FCR-2 | De HDAB MOET (intern of in samenwerking met BVO-operators) de vereiste processen hebben om aanvullende datamodellen in te zetten die door data-gebruikers worden vereist |
-|FCR-3 | BVO MOET de deployering en uitvoering ondersteunen van softwarecomponenten die nodig zijn om gefedereerde gegevensverwerking uit te voeren zoals beschreven en geautoriseerd in de data-vergunning, onderhevig aan toepasselijke beveiligingscontroles |
-|FCR-4 | De HDAB MOET de vereiste processen hebben om het gebruik van softwarecomponenten die nodig zijn in federated computing te autoriseren |
-|FCR-5 | BVO MOET een data-gebruikersapplicatie in staat stellen om anonieme resultaten uit de BVO op te halen om samen te voegen met resultaten die zijn opgehaald uit andere BVOs |
-|FCR-6 | BVO MOET functionaliteit bevatten om de anonimiteit van resultaten te waarborgen, met toepasselijke methoden zoals: (1) voorafgaande beoordeling van softwarecomponenten die de resultaten produceren, (2) geautomatiseerde anonymiteitsbeoordeling, (3) aanvullende privacy-beschermingsmechanismen (zoals differential privacy) en (4) handmatige inspecties |
-|FCR-7 | De HDAB MOET processen hebben vastgesteld voor het goedkeuren van geautomatiseerde toegangsrechten voor data-gebruikersapplicaties in de context van data-vergunningautorisatie |
-|FCR-8 | BVO MOET een open en gestandaardiseerde interface bieden die nodig is om informatie uit te wisselen met andere vertrouwde BVOs zoals nodig om federatief leren uit te voeren |
-|FCR-9 | BVO ZOU het gebruik van privacy-beschermingsmethoden (zoals differential privacy) voor federatief leren moeten ondersteunen |
-:::
-
-::: {.callout-note collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Vereisten voor technische interoperabiliteit (TIR)
 
 | ID | Vereisten |
@@ -219,9 +172,92 @@ PLUGIN streeft ernaar om de kwaliteitseisen zoals in TEHDAS2 zijn geformuleerd t
 |TIR-36 | Het systeem MOET flow control implementeren om wisselende belastingen te beheren en overbelasting te voorkomen, waarbij gebruik wordt gemaakt van rate limiting, throttling en adaptieve resource-allocatie zoals nodig.|
 :::
 
+## Kwaliteitseisen
+
+Naast de functionele eisen, streeft PLUGIN ernaar om de kwaliteitseisen zoals in TEHDAS2 zijn geformuleerd te realiseren. De eisen zijn in onderstaande tabellen weergegeven. **TO DO:** prioritering toevoegen aan tabellen(laag-middel-hoog).
+
+::: {.callout-caution collapse="true"}
+## Vereisten voor gevoelige data (SD)
+| ID | Vereisten |
+|----|-----------|
+| SDR-1 | Ongeautoriseerde gebruikers MOGEN GEEN toegang hebben tot gevoelige data |
+| SDR-2 | Systeembeheerders ZOUDEN GEEN toegang moeten hebben tot gevoelige data |
+| SDR-3 | Gevoelige data MOET in een beveiligd formaat worden opgeslagen en overgedragen |
+| SDR-4 | Bescherming van gevoelige data MOET worden gedaan met algemeen geaccepteerde, veilige algoritmes gecombineerd met effectieve isolatiemaatregelen |
+:::
+
+::: {.callout-caution collapse="true"}
+## European Health Data Space (EHDS) BVO-vereisten
+
+| ID | Vereisten |
+|----|-----------|
+|EHDSR-1 | HDAB MOET toegang tot elektronische gezondheidsdata verlenen middels een data-vergunning |
+|EHDSR-2 | Elektronische gezondheidsdata MOET worden benaderd via een BVO |
+|EHDSR-3 | Natuurlijke personen vermeld in de data-vergunning MOGEN de geïdentificeerde elektronische gezondheidsdata in de BVO benaderen |
+|EHDSR-4 | TOMs MOETEN het risico op ongeautoriseerde toegang tot elektronische gezondheidsdata in BVOs minimaliseren |
+|EHDSR-5 | Geautoriseerde gezondheidsdata-gebruikers MOETEN sterk geïdentificeerd zijn |
+|EHDSR-6 | Alle toegangs- en operatielogs van de BVO MOETEN beschikbaar zijn voor verificatie en auditing |
+|EHDSR-7 | Alle BVO-logs MOETEN de actor identificeren |
+|EHDSR-8 | Alle BVO-logs MOETEN minimaal één jaar bewaard worden |
+|EHDSR-9 | TOMs van BVOs MOETEN gemonitord worden op beveiliging |
+|EHDSR-10 | Elektronische gezondheidsdata MOET geïdentificeerd zijn in de data-vergunning |
+|EHDSR-11 | Gezondheidsdata-houder MOET de vergunde elektronische gezondheidsdata uploaden zodat deze beschikbaar is in een BVO voor de gezondheidsdata-gebruiker |
+|EHDSR-12 | Gezondheidsdata-gebruiker MAG alleen niet-persoonlijke elektronische gezondheidsdata uit de BVO downloaden. Geanonimiseerde persoonsgegevens zijn niet-persoonlijk |
+|EHDSR-13 | HDAB MOET door beoordeling waarborgen dat geen persoonsgegevens uit de BVO worden gehaald door de gezondheidsdata-gebruiker |
+|EHDSR-14 | Reguliere interne en externe beveiligingsaudits MOETEN worden uitgevoerd op BVO TOMs |
+|EHDSR-15 | BVO TOMs MOETEN risico-beoordelingen ondergaan |
+|EHDSR-16 | HDABs MOETEN waarborgen dat BVO TOMs-audits worden uitgevoerd en dat risico-beoordelingen leiden tot risicobeperkingen |
+|EHDSR-17 | Wanneer BVOs genoemd in de EU Data Act worden gebruikt voor elektronische gezondheidsdata, MOETEN EHDS-regels en -vereisten worden nageleefd |
+|EHDSR-18 | BVOs MOETEN zich aanpassen aan TOMs die de Commissie de EHDS uitvoeringshandelingen in zal schrijven |
+:::
+
+::: {.callout-caution collapse="true"}
+## Operationele (OP) EHDS BVO-vereisten
+
+| ID | Vereisten |
+|----|-----------|
+|OPR-1 | De BVO-operator MOET procedures hebben om gebruikersauthenticatie en toegangsbeperkingen af te dwingen op basis van de data-vergunning die verbonden is aan de verwerking van gezondheidsdata |
+|OPR-2 | BVO-operator MOET het aantal geautoriseerde medewerkers en eventuele onderaannemers met hoge machtigingen die hen in staat stellen gezondheidsdata te benaderen of verwerken beperken en MOET effectieve procedures implementeren voor het beheren en monitoren van dergelijke toegang binnen de BVO-infrastructuur |
+|OPR-3 | BVO-operator ZOU een Dienstenportfolio met alle diensten moeten bijhouden |
+|OPR-4 | BVO-operator ZOU een configuratiemanagementdatabase (CMDB) moeten bijhouden |
+|OPR-5 | BVO-operator MOET mechanismen implementeren om de beveiligde verwerkingsomgeving te beëindigen bij het aflopen van de data-vergunning | Alle elektronische gezondheidsdata binnen de omgeving MOET worden verwijderd of onherstelbaar worden gemaakt binnen zes maanden na het aflopen van de vergunning, inclusief back-ups of redundante kopieën | Procedures MOETEN formeel worden gedocumenteerd, gemonitor en afgestemd op risico-beoordelingen en vertrouwelijkheidsvereisten | |
+|OPR-6 | BVO-operator MOET regelmatige interne en externe beveiligingsaudits ondergaan om naleving van beveiligings-, gegevensbeschermings- en operationele vereisten te beoordelen |
+|OPR-7 | BVO-operator MOET logs en toegangsregistraties bewaren om traceerbaarheid van alle operaties te waarborgen en audits of onderzoeken mogelijk te maken wanneer nodig |
+|OPR-8 | De BVO-operator MOET actuele documentatie bijhouden van alle relevante technische, organisatorische en beveiligingsprocessen |
+|OPR-9 | De BVO-operator ZOU een Compliance Officer moeten aanwijzen of verantwoordelijkheden moeten toewijzen om naleving van juridische, ethische en technische verplichtingen te waarborgen |
+|OPR-10 | BVO-operator MOET een operationeel informatiebeveiligingsmanagementsysteem (ISMS) hebben |
+|OPR-11 | BVO-operator ZOU een Servicemanagementsysteem moeten opzetten |
+|OPR-12 | BVO-operators MOETEN regelmatig gegevensbeschermingseffectbeoordelingen (DPIA's) uitvoeren |
+[TODO]|OPR-13 | BVO-operator MOET beleid handhaven om beveiliging rond inkoopsystemen en ontwikkeling en gebruik van systemen te waarborgen | |
+|OPR-14 | BVOs ZOUDEN een wijzigingsbeheerproces met impact- en risicobeoordeling moeten hanteren |
+|OPR-15 | BVO-operator ZOU een release- en implementatiebeheerproces moeten hanteren |
+|OPR-16 | BVO-operator MOET acties van elk geautoriseerd projectlid volgen en loggen, inclusief gevallen van datatoegang, verwerking, weergave en output |
+|OPR-17 | BVO-operator MOET een veilig opslagproces implementeren om logs van gebruikerstoegang tot de BVO minimaal één jaar te bewaren |
+|OPR-18 | Een rapportageproces MOET aanwezig zijn om HDABs en relevante autoriteiten op de hoogte te stellen van beveiligingsincidenten of bevindingen van niet-naleving, inclusief datalekken of misbruik |
+|OPR-19 | BVO-operator ZOU gedefinieerde tijdslijnen moeten hanteren en afdwingen voor het communiceren en rapporteren van incidenten aan de HDAB: Vroege waarschuwingsmelding: binnen 24 uur na detectie van het incident. Gedetailleerde incidentmelding: binnen 72 uur na detectie van het incident. Definitief incidentrapport: uiterlijk één maand na het incident |
+|OPR-20 | BVO-operator MOET in staat zijn om toegang en verwerkingsactiviteiten binnen de BVO onmiddellijk te stoppen wanneer misbruik of datalekken worden geïdentificeerd |
+|OPR-21 | BVO-operator MOET rampherstelprocedures hebben om de beschikbaarheid en integriteit van de BVO-diensten te herstellen, inclusief kritieke systeemcomponenten, configuraties en platformfunctionaliteit, vanuit schone back-ups, en om normale dienstoperaties te hervatten na een incident |
+|OPR-22 | BVO-operator MOET robuuste beveiligingsmaatregelen hanteren om data te beschermen, inclusief het gebruik van firewalls, encryptie en inbraakdetectiesystemen, om ongeautoriseerde toegang, wijziging of verwijdering van gevoelige informatie te voorkomen |
+|OPR-23 | Gezondheidsdata-gebruikers, HDAB-personeel en BVO-operatorpersoneel die interacteren met de BVO MOETEN gedetailleerde, rolspecifieke informatie of training ontvangen over gezondheidsdata-verwerking, EHDS-nalevingsvereisten en best practices op het gebied van beveiliging volgens de AVG |
+|OPR-24 | De BVO-operator MOET strategieën implementeren voor back-upbeheer, rampherstel en crisismanagement |
+|OPR-25 | De BVO-operator MOET cybersecurityprocedures implementeren om regelmatig de effectiviteit van risicobeheermaatregelen te evalueren en fundamentele cybersecurity-praktijken te bevorderen en noodzakelijke training te bieden |
+|OPR-26 | BVO-operator ZOU SLA's moeten definiëren die het volgende omvatten: garanties voor uptime, reactie-/oplostijden voor incidenten, inclusief beveiligings-SLA's, zoals data-encryptie garanties, reactietijden bij incidenten en auditlogging |
+|OPR-27 | De BVO-operator ZOU regelmatig back-ups naar het platform moeten herstellen als onderdeel van standaard feature-ontwikkeling en operationele activiteiten, om paraatheid voor incidentrespons te waarborgen |
+|OPR-28 | De BVO-operator MOET een formeel patchbeheerbeleid implementeren om beveiligingspatches tijdig te identificeren, evalueren en toepassen op basis van ernst |
+|OPR-29 | BVO-operator MOET een systeemupdateproces opzetten om tijdige en veilige updates van software, OS en firmware te waarborgen, getest voorafgaand aan implementatie |
+|OPR-30 | Een wijzigingsbeheerproces ZOU moeten worden gebruikt voor het beoordelen van de impact van patches en updates voordat deze op de productieomgeving worden toegepast |
+|OPR-31 | BVO-operator MOET toegewijde technische ondersteuning bieden met duidelijk gedefinieerde SLA's en escalatiepaden voor het aanpakken van incidenten en technische problemen |
+|OPR-32 | Ondersteunend personeel van de BVO-operator ZOU getraind moeten zijn in informatiebeveiligings- en privacyprocedures, met duidelijk gedefinieerde rollen en verantwoordelijkheden |
+|OPR-33 | Een kennisbank en ondersteunende documentatie ZOU moeten worden bijgehouden om te helpen bij het oplossen van veelvoorkomende problemen en om incidentresponsetijden te verbeteren |
+:::
+
+
 ## Belanghebbenden
 
 | Rol/Naam    | Contact persoon | Verwachtingen       |
 |-------------|-----------------|---------------------|
 | *Datahouders* | *\<Contact-1\>* | *\<Verwachting-1\>* |
 | *Datagebruikers* | *\<Contact-2\>* | *\<Verwachting-2\>* |
+
+[^1]: TEHDAS staat voor Towards European Health Data Space. Het is een samenwerking van 29 Europese landen om gezondheidsgegevens op een verantwoord manier herbruikbaar te maken, bijvoorbeeld voor onderzoek, innovatie of beleid. Binnen deze samenwerking worden richtlijnen en specificaties geschreven, die voor een deel terugkomen in uitvoeringshandelingen. TEHDAS2 refereert naar de tweede consultatie ronde van richtlijnen en ontwerpprincipes.
+[^2]: TEHDAS2 [7.4 Draft technical, functional and security specifications of Secure Processing Environments](https://tehdas.eu/wp-content/uploads/2025/09/draft-technical-functional-and-security-specifications-of-secure-processing-environments.pdf)
