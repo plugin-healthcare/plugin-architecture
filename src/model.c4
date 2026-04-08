@@ -16,21 +16,21 @@ model {
             description 'Beveiligde omgeving waarin datasets en gegevensdiensten van een datahouders worden ontsloten volgens afgesproken standaarden, met expliciete regels voor toegang, autorisatie, logging en gebruik.'
 
             vantage6-node = container 'vantage6 node' {
-                description 'Component die verantwoordelijk is voor het uitvoeren van federatieve berekeningen op de data van een data houder, inclusief het ontvangen van taken, uitvoeren van algoritmes en terugsturen van resultaten.'
+                description 'Applicatie die verantwoordelijk is voor het uitvoeren van federatieve berekeningen op de data van een data houder, inclusief het ontvangen van taken, uitvoeren van algoritmes en terugsturen van resultaten.'
             }
 
             plugin-lake-ui = ui 'PLUGIN-Lake UI' {
-                description 'Component die lakehouse functionaliteit biedt voor het opslaan en beheren van grote hoeveelheden gestructureerde en ongestructureerde data.'
+                description 'Applicatie die lakehouse functionaliteit biedt voor het opslaan en beheren van grote hoeveelheden gestructureerde en ongestructureerde data.'
             }
 
             dagster-ui = ui 'Dagster UI' {
-                description 'Component die een interface biedt voor het ontwerpen, plannen en monitoren van data pipelines.'
+                description 'Applicatie die een interface biedt voor het ontwerpen, plannen en monitoren van data pipelines.'
 
                 -> dagster-deamon 'stuurt opdrachten naar en ontvangt status updates van'
             }
 
             dagster-deamon = container 'Dagster Daemon' {
-                    description 'Component die verantwoordelijk is voor het uitvoeren van geplande taken en het monitoren van de status van data pipelines in Dagster.'
+                    description 'Applicatie die verantwoordelijk is voor het uitvoeren van geplande taken en het monitoren van de status van data pipelines in Dagster.'
                 }
             algoritme-container = container 'Algoritme container' {
                 description 'Component die machine learning algoritmes en modellen bevat die kunnen worden uitgevoerd op het datastation.'
@@ -42,21 +42,26 @@ model {
 
                 plugin-lake-api = component 'PLUGIN-Lake API' {
                     description 'single gateway voor PLUGIN-Lake.'
+                    technology 'FastAPI, Python'
                 }
 
                 ducklake = component 'DuckLake' {
                     description 'Open standaard voor lakehouse data opslag.'
+                    link https://ducklake.select/docs/stable/specification/introduction
+                    technology 'DuckDB'
                     catalog = component 'Catalog database' {
                         description 'DuckLake uses SQL tables and queries to define the catalog information (metadata, statistics, etc.). The DuckLake specification explains the schema and semantics of these.'
-                        link https://ducklake.select/docs/stable/specification/introduction
+                        technology 'PostgreSQL'
                     }
                     data = component 'Data storage' {
                         description 'DuckLake uses Parquet files to represent its tables. These files can be stored in object storage (blob storage), block storage or file storage.'
+                        technology 'S3-compatible storage'
                     }
                 }
 
                 dagster-ducklake-iomanager = component 'Dagster DuckLake IO manager' {
                     description 'Dagster extension for managing IO to DuckLake'
+                    technology 'Python'
                     -> ducklake 'leest en schrijft (meta)data naar'
                 }
             }
