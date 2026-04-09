@@ -104,7 +104,7 @@ model {
                 openehr -> eos 'input voor'
                 eos -> omop 'mapped naar'
                 eos -> sssom 'vastgelegd in'
-                '
+                
             }
 
             plugin-lake -> plugin-rosetta 'implementeert'

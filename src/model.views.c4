@@ -5,7 +5,7 @@ views {
   }
 
   view ph of plugin.ph {
-    title 'Federated Processing Hub'
+    title 'Processing Hub'
     include *
   }
 
