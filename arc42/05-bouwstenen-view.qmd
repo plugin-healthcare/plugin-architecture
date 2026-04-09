@@ -70,7 +70,7 @@ Dit architectuur document richt zich vooral op het datastation en de processing 
 
 ```{=html}
 <likec4-view
-   view-id="fph"
+   view-id="ph"
    browser="true"
    dynamic-variant="sequence">
 </likec4-view>

@@ -20,7 +20,7 @@ model {
             }
 
             plugin-lake-ui = ui 'PLUGIN-Lake UI' {
-                description 'Applicatie die lakehouse functionaliteit biedt voor het opslaan en beheren van grote hoeveelheden gestructureerde en ongestructureerde data.'
+                description 'Web-applicatie waarmee datahouder inzicht krijgt in de status en logs van het datastation.'
             }
 
             dagster-ui = ui 'Dagster UI' {
@@ -34,7 +34,7 @@ model {
                 description 'Component die machine learning algoritmes en modellen bevat die kunnen worden uitgevoerd op het datastation.'
             }
             plugin-lake = system 'PLUGIN-Lake' {
-                description ''
+                description 'Applicatie die lakehouse functionaliteit biedt voor het opslaan en beheren van grote hoeveelheden gestructureerde en ongestructureerde data.'
                 plugin-lake-api = component 'PLUGIN-Lake API' {
                     description 'single gateway voor PLUGIN-Lake.'
                     technology 'FastAPI, Python'
