@@ -40,7 +40,7 @@ Het gebruik van elektronische gezondheidsgegevens voor andere doeleinden dan die
 
 
 
-## Requirementsoverzicht
+## Requirementsoverzicht {#sec-requirementsoverzicht}
 
 Het **Pl**atform voor **U**itwisseling en Her**g**ebruik van Kl**i**nische Data **N**ederland (PLUGIN) beoogt klinische data die routinematig in ziekenhuizen wordt vastgelegd op een veilige, schaalbare en duurzame wijze te ontsluiten voor secundair gebruik. PLUGIN richt zich op het ondersteunen van alle stappen in het proces van secundair gebruik zoals in TEHDAS2 is gedefinieerd.[^inleiding-1] 
 

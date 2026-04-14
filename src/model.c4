@@ -59,6 +59,11 @@ model {
                 }
             }
 
+            nuts-node = container 'Nuts-node' {
+                description 'Decentralized management of identities, autorisation, registries and logging.'
+                -> plugin-lake 'registers, secures and logs'
+            }
+
             plugin-rosetta = component 'PLUGIN-Rosetta' {
                 description 'Ondersteuning van verschillende informatiemodellen incl. gevalideerde mappings.'
                 technology 'LinkML, Python'
