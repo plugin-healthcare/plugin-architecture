@@ -31,7 +31,7 @@ Het concept van _data visiting_, ook wel bekend als _federated computing_, _algo
 
 Om invulling te geven aan deze principes, gaat PLUGIN uit van een hybride, decentrale architectuur waarin datahouders en datagebruikers centraal staan. Aan de kant van de datahouders is het datastation het essentiele systeem waarmee datahouders op een effectieve en effiente manier data beschikbaar kunnen stellen voor hergebruik. Aan de kant van de datagebruikers is de processing hub de centrale component voor het realiseren van een beveiligde verwerkingsomgeving waarin datagebruikers kunnen werken. De combinatie van een datastation en de processing hub vormt de essentie van de voorgestelde architectuur.
 
-![](./images/ehds-simpel.png)
+![](./images/ehds-simpel.svg)
 
 ### Het zandlopermodel als leidraad voor interoperabiliteit {#sec-zandlopermodel}
 

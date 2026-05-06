@@ -51,7 +51,7 @@ Voor gefedereerd leren maakt PLUGIN gebruik van vantage6. Het gefedereerd leren 
 
 - - **9. Afronding**
   - De CAS informeert de onderzoeker dat de taak is voltooid. De onderzoeker kan vervolgens het finale, globale model downloaden van de server. Gedurende het proces heeft niemand, ook de onderzoeker niet, toegang tot de tussenresultaten, wat de veiligheid waarborgt.
-
+:::
 
 ## Data aanlevering
 

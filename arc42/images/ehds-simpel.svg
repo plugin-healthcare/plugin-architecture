@@ -9,7 +9,7 @@
    id="svg1"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    sodipodi:docname="ehds-simpel.svg"
-   inkscape:export-filename="ehda-simpel.png"
+   inkscape:export-filename="ehds-simpel.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,9 +28,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1"
-     inkscape:cx="459"
+     inkscape:cx="549"
      inkscape:cy="334"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer2"
      showgrid="false">
     <inkscape:grid
        id="grid14"
@@ -105,7 +105,7 @@
      style="display:inline"
      transform="translate(16.633023,8.784173)">
     <rect
-       style="fill:#ffffff;stroke:#ff4f5e;stroke-width:1.5;stroke-miterlimit:5.3;stroke-dasharray:3, 3;stroke-dashoffset:0;paint-order:stroke fill markers"
+       style="fill:#ffffff;stroke:#053c5b;stroke-width:1.5;stroke-miterlimit:5.3;stroke-dasharray:3, 3;stroke-dashoffset:0;paint-order:stroke fill markers;stroke-opacity:1"
        id="rect36-9-6"
        width="96.738556"
        height="37.684589"
@@ -126,7 +126,9 @@
          id="tspan5"
          dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"><tspan
    style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#005e5e;stroke:#005e5e"
-   id="tspan8">Datagebruikers </tspan>voeren</tspan><tspan
+   id="tspan8"><tspan
+   style="fill:#f28729;fill-opacity:1;stroke:#f28729;stroke-opacity:1"
+   id="tspan2">Datagebruikers</tspan> </tspan>voeren</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Ultra-Light';fill:#000000;stroke:#000000;stroke-width:0.264583"
          x="17.958992"
@@ -158,15 +160,15 @@
          x="17.830961"
          y="65.941292"
          id="tspan13"><tspan
-   id="tspan25"
-   style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Ultra-Light';fill:#000000;stroke:#000000;stroke-width:0.264583">in een </tspan>processing hub</tspan><tspan
+           id="tspan25"
+           style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Ultra-Light';fill:#000000;stroke:#000000;stroke-width:0.264583">in een </tspan><tspan
+           style="fill:#053c5b;fill-opacity:1;stroke:#053c5b;stroke-opacity:1"
+           id="tspan3">processing hub</tspan></tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Light';fill:#000000;stroke:#000000;stroke-width:0.264583"
          x="17.830961"
          y="72.114906"
-         id="tspan52"><tspan
-   id="tspan4"
-   style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#ff4f5e;stroke:#ff4f5e;stroke-width:0.264583"></tspan>die voldoet aan de</tspan><tspan
+         id="tspan52">die voldoet aan de</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Light';fill:#000000;stroke:#000000;stroke-width:0.264583"
          x="17.830961"
@@ -202,12 +204,12 @@
        y="62.42477"
        id="text10-33"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#ff4f5e;stroke:#ff4f5e;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#053c5b;fill-opacity:1;stroke:#053c5b;stroke-width:0.264583;stroke-opacity:1"
          x="156.46487"
          y="62.42477"
          id="tspan13-4">Data governance principes</tspan><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#ff4f5e;stroke:#ff4f5e;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#053c5b;fill-opacity:1;stroke:#053c5b;stroke-width:0.264583;stroke-opacity:1"
          x="156.46487"
          y="68.598381"
          id="tspan26-1" /></text>
@@ -223,7 +225,7 @@
          y="112.51704"
          id="tspan13-5">dat is verbonden verschillende</tspan><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#6e008b;stroke:#6e008b;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#0588a6;fill-opacity:1;stroke:#0588a6;stroke-width:0.264583;stroke-opacity:1"
          x="18.00635"
          y="118.69065"
          id="tspan26-6">datastations</tspan></text>
@@ -239,12 +241,10 @@
          y="135.22215"
          id="tspan13-5-9">die worden beheerd door de</tspan><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#ff4f5e;stroke:#ff4f5e;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:inter;-inkscape-font-specification:'inter Medium';fill:#0588a6;fill-opacity:1;stroke:#0588a6;stroke-width:0.264583;stroke-opacity:1"
          x="18.00635"
          y="141.39577"
-         id="tspan26-6-8"><tspan
-           style="fill:#6e008b;stroke:#6e008b"
-           id="tspan29-7">data houders</tspan></tspan></text>
+         id="tspan26-6-8">data houders</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,24.60625,-81.491667)"
@@ -294,17 +294,17 @@
        y="107.94997" />
     <use
        xlink:href="#octicons.svg:database"
-       style="fill:#6e008b;stroke:#6e008b;stroke-width:0.304348"
+       style="fill:#0588a6;stroke:#120017;stroke-width:0.304348;stroke-opacity:0;fill-opacity:1"
        id="use1-2"
        transform="matrix(0.86934524,0,0,0.86934524,91.549079,107.34522)" />
     <use
        xlink:href="#octicons.svg:database"
-       style="fill:#6e008b;stroke:#000000;stroke-width:0.304348"
+       style="fill:#0588a6;stroke:#120017;stroke-width:0.304348;stroke-opacity:0;fill-opacity:1"
        id="use1-2-5"
        transform="matrix(0.86934524,0,0,0.86934524,110.0663,107.6098)" />
     <use
        xlink:href="#octicons.svg:database"
-       style="fill:#6e008b;stroke:#000000;stroke-width:0.304348"
+       style="fill:#0588a6;stroke:#120017;stroke-width:0.304348;stroke-opacity:0;fill-opacity:1"
        id="use1-2-8"
        transform="matrix(0.86934524,0,0,0.86934524,128.58359,107.34522)" />
     <path
@@ -366,25 +366,25 @@
        xlink:href="#fork-awesome-symbols.svg:user"
        width="10000"
        height="10000"
-       style="fill:#6e008b;stroke:#000000;stroke-width:27.5042"
+       style="fill:#0588a6;stroke:#120017;stroke-width:27.5042;stroke-opacity:0;fill-opacity:1"
        id="use1-0-4"
        transform="matrix(0.00961974,0,0,0.00961974,90.608515,126.33295)" />
     <use
        xlink:href="#fork-awesome-symbols.svg:user"
        width="10000"
        height="10000"
-       style="fill:#6e008b;stroke:#000000;stroke-width:27.5042"
+       style="fill:#0588a6;stroke:#120017;stroke-width:27.5042;stroke-opacity:0;fill-opacity:1"
        id="use1-0-4-5"
        transform="matrix(0.00961974,0,0,0.00961974,109.12574,126.33295)" />
     <use
        xlink:href="#fork-awesome-symbols.svg:user"
        width="10000"
        height="10000"
-       style="fill:#6e008b;stroke:#000000;stroke-width:27.5042"
+       style="fill:#0588a6;stroke:#120017;stroke-width:27.5042;stroke-opacity:0;fill-opacity:1"
        id="use1-0-4-5-9"
        transform="matrix(0.00961974,0,0,0.00961974,127.64303,126.33295)" />
     <rect
-       style="fill:none;stroke:#6e008b;stroke-width:0.365;stroke-miterlimit:5.3;stroke-dasharray:2.19, 2.19;stroke-dashoffset:0;paint-order:stroke fill markers"
+       style="fill:none;stroke:#0588a6;stroke-width:0.365;stroke-miterlimit:5.3;stroke-dasharray:2.19, 2.19;stroke-dashoffset:0;paint-order:stroke fill markers;stroke-opacity:1"
        id="rect36"
        width="14.2875"
        height="40.481251"
@@ -393,7 +393,7 @@
        rx="3"
        ry="3" />
     <rect
-       style="fill:none;stroke:#6e008b;stroke-width:0.365;stroke-miterlimit:5.3;stroke-dasharray:2.19, 2.19;stroke-dashoffset:0;paint-order:stroke fill markers"
+       style="fill:none;stroke:#0588a6;stroke-width:0.365;stroke-miterlimit:5.3;stroke-dasharray:2.19, 2.19;stroke-dashoffset:0;paint-order:stroke fill markers;stroke-opacity:1"
        id="rect36-5"
        width="14.2875"
        height="40.481251"
@@ -402,7 +402,7 @@
        rx="3"
        ry="3" />
     <rect
-       style="fill:none;stroke:#6e008b;stroke-width:0.365;stroke-miterlimit:5.3;stroke-dasharray:2.19, 2.19;stroke-dashoffset:0;paint-order:stroke fill markers"
+       style="fill:none;stroke:#0588a6;stroke-width:0.365;stroke-miterlimit:5.3;stroke-dasharray:2.19, 2.19;stroke-dashoffset:0;paint-order:stroke fill markers;stroke-opacity:1"
        id="rect36-9"
        width="14.2875"
        height="40.481251"
@@ -410,17 +410,9 @@
        y="104.95749"
        rx="3"
        ry="3" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#ff4f5e;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="path36"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g23"
-       inkscape:connection-end="#rect36-9-6"
-       d="m 140.08161,68.627371 11.18,0.07123" />
     <use
        xlink:href="#font-awesome-solid-set.svg:users"
-       style="display:inline;fill:#005e5e;stroke:#000000;stroke-width:4.67153"
+       style="display:inline;fill:#f28729;stroke:#000000;stroke-width:4.67153;fill-opacity:1;stroke-opacity:0"
        id="use1-4"
        transform="matrix(0.05663737,0,0,0.05663737,97.102086,8.757702)" />
   </g>
@@ -434,7 +426,7 @@
        transform="matrix(0.770261,0,0,0.75932254,-89.474482,9.4628787)"
        style="display:inline;stroke-width:1.30758">
       <rect
-         style="fill:#ff4f5e;stroke:#000000;stroke-width:0.264583;stroke-miterlimit:5.3"
+         style="fill:#0588a6;stroke:#000000;stroke-width:0.264583;stroke-miterlimit:5.3;fill-opacity:1"
          id="rect10"
          width="39"
          height="39"
