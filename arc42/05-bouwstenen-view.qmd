@@ -25,8 +25,7 @@ Dit architectuur document richt zich vooral op het datastation en de processing 
 
 ```{=html}
 <likec4-view
-   view-id="__plugin"
-   browser="true"
+   view-id="index"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -59,7 +58,6 @@ Op het hoogste abstractieniveau heeft PLUGIN dezelfde architectuur als een data 
 ```{=html}
 <likec4-view
    view-id="datastation"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -110,7 +108,6 @@ Wanneer een datahouder gezondheidsgegevens beschikbaar heeft gesteld op het data
 ```{=html}
 <likec4-view
    view-id="__plugin_datastation_plugin-lake"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -124,7 +121,6 @@ Wanneer een datahouder gezondheidsgegevens beschikbaar heeft gesteld op het data
 ```{=html}
 <likec4-view
    view-id="__plugin_datastation_plugin-rosetta"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -134,7 +130,6 @@ Wanneer een datahouder gezondheidsgegevens beschikbaar heeft gesteld op het data
 ```{=html}
 <likec4-view
    view-id="__plugin_datastation_vantage6-node"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -168,7 +163,6 @@ De verschillende componenten van Dagster zijn opgenomen in de verschillende sub-
 ```{=html}
 <likec4-view
    view-id="ph"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -207,7 +201,6 @@ De verschillende componenten van Dagster zijn opgenomen in de verschillende sub-
 ```{=html}
 <likec4-view
    view-id="__plugin_ph_plugin-ml"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -217,7 +210,6 @@ De verschillende componenten van Dagster zijn opgenomen in de verschillende sub-
 ```{=html}
 <likec4-view
    view-id="__plugin_ph_plugin-hub"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```
@@ -227,7 +219,6 @@ De verschillende componenten van Dagster zijn opgenomen in de verschillende sub-
 ```{=html}
 <likec4-view
    view-id="__plugin_ph_some-server"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```

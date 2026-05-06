@@ -11,7 +11,6 @@
 ```{=html}
 <likec4-view
    view-id="federated-learning"
-   browser="true"
    dynamic-variant="sequence">
 </likec4-view>
 ```

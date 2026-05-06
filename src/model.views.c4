@@ -1,7 +1,7 @@
 views {
   view index {
     title 'PLUGIN'
-    include data-gebruiker, data-houder, -> plugin
+    include data-gebruiker, data-houder, -> plugin.ph, plugin.datastation
   }
 
   view ph of plugin.ph {
