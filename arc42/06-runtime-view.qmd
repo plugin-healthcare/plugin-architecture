@@ -18,8 +18,8 @@
 Voor gefedereerd leren maakt PLUGIN gebruik van vantage6. Het gefedereerd leren van een algoritme omvat een reeks gecoördineerde stappen tussen de data gebruiker, de centrale server en de datastations. Dit proces is ontworpen om de analyse uit te voeren zonder dat de brongegevens de lokale omgeving van het datastation verlaten. Hieronder volgt een detailleerde beschrijving wat elk van de applicatiecomponenten hierin doen.
 
 ::: {.list-table}
-- - stap
-  - omschrijving
+- - Stap
+  - Omschrijving
 
 - - **1. Authenticatie**
   - De onderzoeker start het proces door te authenticeren bij de centrale Vantage6-server.
@@ -62,3 +62,52 @@ TO DO: add reference to draft paper.
 ![Data aanlevering zoals is gerealiseerd in de pilot met IKNL en Radboudumc voor geautomatiseerde aanlevering van gegevens vanuit het bronsysteem (EPD (EPIC)) naar de hoofd-hals kankerregistratie (NCR).](images/iknl-radboud.png)
 
 ## Data analytics
+
+```{=html}
+<likec4-view
+   view-id="federated-analytics"
+   dynamic-variant="sequence">
+</likec4-view>
+```
+
+De federated analytics functionaliteit is op dit moment (mei 2026) in ontwikkeling. Belangrijk uitgangspunt is dat [NUTS](https://nuts-node.readthedocs.io/en/stable/#) als framework wordt gebruikt voor decentrale authorisatie en authenticatie. Het architectuur zal op basis van de ervaringen van de eerste implementatie worden gereviewed en waar nodig aangepast c.q. verbeterd. Zodra de NUTS integratie in PLUGIN is gerealiseerd, zal de usecase voor data aanlevering gebruik maken van de functionaliteit van gefedereerde analyse, in plaats van de huidige implementatie gebaseerd op gefedereerd leren.
+
+::: {.list-table}
+
+- - Stap
+  - Omschrijving
+
+- - **1. Inloggen**
+  - ...
+
+ - - **2. Data of analyse aanvraag**
+   - ...
+
+- - **3. Validatie credentials via Nuts profiel**
+  - ...
+
+- - **4 .Credentials geldig**
+  - ...
+
+- - **5. Federatief verzoek met Nuts credentials**
+  - ...
+
+- - **6. Validatie credentials Processing Hub**
+  - ...
+
+- - **7. Credentials geldig**
+  - ...
+
+- - **8. Terugkoppelen data of query resultaten**
+  - ...
+
+- - **9. Aggregatie en statistische integriteitscontrole**
+  - ...
+
+- - **10. Geaggregeerd resultaat**
+  - ...
+
+- - **11. Resultaat inzien**
+  - ...
+
+:::
