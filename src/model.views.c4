@@ -42,5 +42,27 @@ views {
     include plugin.ph, plugin.datastation
   }
 
+  dynamic view federated-analytics {
+    title 'Federated Analytics & Exchange'
+
+    // Gebruiker logt in en vraagt data/analyse aan
+    data-gebruiker -> plugin.ph.plugin-analytics 'Inloggen'
+    plugin.ph.plugin-analytics -> plugin.ph.plugin-lake 'Data of analyse aanvraag'
+    plugin.ph.plugin-lake -> plugin.ph.nuts-node 'Validatie credentials via Nuts profiel'
+    plugin.ph.plugin-lake <- plugin.ph.nuts-node 'Credentials geldig'
+
+    // Processing Hub stuurt federatieve verzoeken naar datastations
+    plugin.ph.plugin-lake -> plugin.datastation.plugin-lake 'Federatief verzoek met Nuts credentials'
+    plugin.datastation.plugin-lake -> plugin.datastation.nuts-node 'Validatie credentials Processing Hub'
+    plugin.datastation.plugin-lake <- plugin.datastation.nuts-node 'Credentials geldig'
+    plugin.ph.plugin-lake <- plugin.datastation.plugin-lake 'Terugkoppelen data of query resultaten'
+
+    // Aggregatie en teruggave aan gebruiker
+    plugin.ph.plugin-lake -> plugin.ph.plugin-lake 'Aggregatie en statistische integriteitscontrole'
+    plugin.ph.plugin-analytics <- plugin.ph.plugin-lake 'Geaggregeerd resultaat'
+    data-gebruiker <- plugin.ph.plugin-analytics 'Resultaat inzien'
+
+    include plugin.ph, plugin.datastation
+  }
  
 }
