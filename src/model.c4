@@ -103,7 +103,6 @@ model {
                 eos -> omop 'mapped naar'
                 eos -> sssom 'vastgelegd in'
             }
-        }
             plugin-lake -> plugin-rosetta 'implementeert'
 
         vantage6-node -> algoritme-container 'zet op, configureert en stuurt resultaten door van'
@@ -111,9 +110,24 @@ model {
         plugin-lake-ui -> plugin-lake 'interface voor inzage in orchestratie en data'
         plugin-lake.plugin-lake-api -> dagster-deamon 'initeert taken en jobs voor'
         dagster-deamon -> plugin-lake.dagster-ducklake-iomanager 'leest en schrijft data via'
+        }
         
         ph = system 'Processing Hub' {
             description 'Een federatieve data processing systeem dat voldoet aan de eisen van beveiligde verwerkingsomgeving (BVO).'
+
+            plugin-lake = system 'PLUGIN-Lake' {
+                description 'Applicatie die lakehouse functionaliteit biedt voor het opslaan en beheren van grote hoeveelheden gestructureerde en ongestructureerde data op de Processing Hub.'
+                plugin-lake-api = component 'PLUGIN-Lake API' {
+                    description 'single gateway voor PLUGIN-Lake.'
+                    technology 'FastAPI, Python'
+                }
+            }
+
+            nuts-node = container 'Nuts-node' {
+                description 'Sidecar container voor autorisatie en authenticatie bovenop PLUGIN-Lake. Decentralized management of identities, autorisation, registries and logging.'
+                -> plugin-lake 'registers, secures and logs'
+            }
+
             vantage6-server = container 'vantage6 server' {
                 description 'Component die verantwoordelijk is voor het beheren van federatieve berekeningen, inclusief het ontvangen van berekeningsverzoeken, coördineren van taken en verzamelen van resultaten.'
                 vantage6-client = component 'vantage6 client' {
@@ -151,6 +165,7 @@ model {
                         color plugin-light-grey
                     }
                 }
+                -> plugin-lake.plugin-lake-api 'vraagt data en analyses aan via'
                 -> some-server 'wordt uitgevoerd via'
             }
 
@@ -183,5 +198,5 @@ model {
         data-gebruiker -> plugin.ph 'werkt voor secundair gebruik in/met'
         plugin.ph.vantage6-server -> plugin.datastation.vantage6-node 'stuurt taken naar'
         plugin.datastation.vantage6-node -> plugin.ph.vantage6-server 'stuurt resultaten terug naar'
-    
+    }
 }
