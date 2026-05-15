@@ -40,7 +40,7 @@ format:
     lang: nl
     include-in-header:
       - text: |
-          <script module src="https://plugin-healthcare.github.io/plugin-architecture/c4/likec4-views.js"></script>
+          <script module src="https://plugin-healthcare.github.io/architectuur/c4/likec4-views.js"></script>
   # typst:
   #   font-paths: fonts
   #   mainfont: Figtree

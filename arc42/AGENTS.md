@@ -64,7 +64,7 @@ Replaced the default Quarto book stubs with 14 Dutch arc42 chapter files sourced
     ```yaml
     include-in-header:
       - text: |
-          <script module src="https://plugin-healthcare.github.io/plugin-architecture/c4/likec4-views.js"></script>
+          <script module src="https://plugin-healthcare.github.io/architectuur/c4/likec4-views.js"></script>
     ```
 
     This script registers the `<likec4-view>` custom web component globally for all
@@ -254,7 +254,7 @@ embedded diagrams.
 ## File inventory
 
 ```
-plugin-architecture/
+architectuur/
 ├── .github/workflows/
 │   ├── pages.yml                # CI: validate + build + deploy to GitHub Pages
 │   └── on-redeploy.yml          # CI: trigger redeployment
